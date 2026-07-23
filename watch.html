@@ -3,24 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch</title>
+  <meta name="monetag" content="1f83e1a780609f53ae6ec0a63593ed62">
+  <title>Watch</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="stylesheet" href="assets/watch.css">
 </head>
 <body>
-
   <header class="hdr">
     <div class="wrap">
       <div class="hdr-row">
-        <a href="#" class="logo"><span class="dot"></span>Vidaycoi</a>
+        <a href="index.html" class="logo"><span class="dot"></span>Vidaycoi</a>
       </div>
     </div>
   </header>
-
-<script async="async" data-cfasync="false" src="https://hypothesisgarden.com/a227b60d1b3b2189655acfefd864f0ab/invoke.js"></script>
-<div id="container-a227b60d1b3b2189655acfefd864f0ab"></div>
 
   <main class="main">
     <div id="player" class="player" data-state="idle">
@@ -132,30 +129,33 @@
     <section class="related" id="relatedWrap" hidden>
       <div class="related-head">
         <h2 class="related-title" data-i18n="upNext">Up next</h2>
+        <button id="autoToggle" class="autoplay" role="switch" aria-checked="true" type="button">
+          <span class="autoplay-label">Autoplay</span>
+          <span class="switch"><span class="knob"></span></span>
+        </button>
       </div>
       <div class="related-grid" id="relatedGrid"></div>
     </section>
   </main>
 
   <footer class="ftr">
-    <a href="#" data-i18n="allVideos">All videos</a>
+    <a href="index.html" data-i18n="allVideos">All videos</a>
     <a href="about.html" data-i18n="about">About</a>
     <a href="privacy.html" data-i18n="privacy">Privacy</a>
   </footer>
 
   <script src="assets/watch.js" defer></script>
 
-   <!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5009868,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5009868&101" alt="" border="0"></a></noscript>
-<!-- Histats.com  END  -->
+  <!-- Histats counter — async, end of body, never blocks render. -->
+  <script type="text/javascript">var _Hasync= _Hasync|| [];
+  _Hasync.push(['Histats.start', '1,5009868,4,0,0,0,00010000']);
+  _Hasync.push(['Histats.fasi', '1']);
+  _Hasync.push(['Histats.track_hits', '']);
+  (function() {
+  var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+  hs.src = ('//s10.histats.com/js15_as.js');
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+  })();</script>
+  <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5009868&amp;101" alt="" border="0"></a></noscript>
 </body>
 </html>
