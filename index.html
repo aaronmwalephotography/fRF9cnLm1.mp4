@@ -1,161 +1,199 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Watch</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="stylesheet" href="assets/watch.css">
-</head>
-<body>
+DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;Sssshhh🤫&lt;/title&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
 
-  <header class="hdr">
-    <div class="wrap">
-      <div class="hdr-row">
-        <a href="#" class="logo"><span class="dot"></span>Vidaycoi</a>
-      </div>
-    </div>
-  </header>
+  &lt;style&gt;
+    :root {
+      --primary-bg: #101014;
+      --header-bg: #191a1f;
+      --card-bg: #16171c;
+      --border-color: #232329;
+      --footer-bg: #18181e;
+      --accent: #ffd900;
+      --text-main: #fff;
+      --text-footer: #ccc;
+    }
 
-<script async="async" data-cfasync="false" src="https://hypothesisgarden.com/a227b60d1b3b2189655acfefd864f0ab/invoke.js"></script>
-<div id="container-a227b60d1b3b2189655acfefd864f0ab"></div>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <main class="main">
-    <div id="player" class="player" data-state="idle">
-      <video id="video" class="video" playsinline preload="metadata" controlslist="nodownload"></video>
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: &quot;Poppins&quot;, Arial, sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-      <div id="poster" class="poster" aria-hidden="true"></div>
+    header {
+      background: var(--header-bg);
+      text-align: center;
+      padding: 18px 12px 14px 12px;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      box-shadow: 0 1.5px 6px rgba(0,0,0,0.15);
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-main);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      word-break: break-word;
+    }
 
-      <button id="bigPlay" class="bigplay" type="button" aria-label="Play video">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
-      </button>
-      <div id="playHint" class="play-hint" aria-hidden="true"><span data-i18n="tapToPlay">Tap to play</span></div>
-      <div id="flash" class="flash" aria-hidden="true"></div>
-      <div id="spinner" class="spin" hidden></div>
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 18px 8px 10px 8px;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+    }
 
-      <div id="controls" class="controls">
-        <div id="scrubber" class="scrub">
-          <div class="track">
-            <div id="buffered" class="buffered"></div>
-            <div id="progress" class="progress"></div>
-          </div>
-          <div id="scrubThumb" class="scrub-thumb"></div>
-        </div>
-        <div class="cbar">
-          <button id="playBtn" class="cbtn" type="button" aria-label="Play / pause">
-            <svg id="iconPlay" class="ic" viewBox="0 0 24 24" fill="#E5E7EB" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
-            <svg id="iconPause" class="ic" hidden viewBox="0 0 24 24" fill="#E5E7EB" aria-hidden="true"><rect x="14" y="3" width="5" height="18" rx="1"></rect><rect x="5" y="3" width="5" height="18" rx="1"></rect></svg>
-          </button>
+    video {
+      width: 80%;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #18181e;
+      box-shadow: 0 2px 18px rgba(0,0,0,0.11);
+      margin-bottom: 18px;
+      outline: none;
+      border: 1px solid var(--border-color);
+      transition: box-shadow 0.2s;
+    }
 
-          <div class="vol">
-            <button id="muteBtn" class="cbtn" type="button" aria-label="Mute">
-              <svg id="iconVol" class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" style="fill: rgb(255, 255, 255)"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" style="fill: rgb(255, 255, 255)"></path></svg>
-              <svg id="iconMute" class="ic" hidden viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z" fill="currentColor"></path><path d="M16.6 9.6l4.8 4.8M21.4 9.6l-4.8 4.8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path></svg>
-            </button>
-            <input id="volume" class="vrange" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume">
-          </div>
+    .banner-ad {
+      background: var(--card-bg);
+      border: 1px solid #292a2f;
+      border-radius: 10px;
+      padding: 11px 10px 8px 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 1px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.09);
+      margin-bottom: 1px;
+    }
 
-          <div class="time"><span id="curTime">0:00</span> / <span id="durTime">0:00</span></div>
+    .banner-ad a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 200;
+      font-size: 1rem;
+    }
 
-          <div class="cright">
-            <button id="settingsBtn" class="cbtn" type="button" aria-label="Settings">
-              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-            </button>
-            <div id="settingsMenu" class="menu" hidden>
-              <div class="menu-title" data-i18n="speed">Speed</div>
-              <button class="speed" data-speed="0.5" type="button">0.5x</button>
-              <button class="speed" data-speed="1" type="button" data-i18n="normal">Normal</button>
-              <button class="speed" data-speed="1.5" type="button">1.5x</button>
-              <button class="speed" data-speed="2" type="button">2x</button>
-            </div>
-            <button id="pipBtn" class="cbtn" type="button" aria-label="Picture in picture">
-              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 9V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v10c0 1.1.9 2 2 2h4"></path><rect width="10" height="7" x="12" y="13" rx="2"></rect></svg>
-            </button>
-            <button id="fsBtn" class="cbtn" type="button" aria-label="Fullscreen">
-              <svg id="iconFsOn" class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"></path><path d="M21 8V5a2 2 0 0 0-2-2h-3"></path><path d="M3 16v3a2 2 0 0 0 2 2h3"></path><path d="M16 21h3a2 2 0 0 0 2-2v-3"></path></svg>
-              <svg id="iconFsOff" class="ic" hidden viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3"></path><path d="M21 8h-3a2 2 0 0 1-2-2V3"></path><path d="M3 16h3a2 2 0 0 1 2 2v3"></path><path d="M16 21v-3a2 2 0 0 1 2-2h3"></path></svg>
-            </button>
-          </div>
-        </div>
-      </div>
+    .banner-ad a:hover {
+      text-decoration: underline;
+    }
 
-      <div id="nextOverlay" class="next-ov" hidden>
-        <div class="next-card">
-          <div class="next-label">Up next in <span id="nextCount">5</span></div>
-          <div class="next-thumb"><img id="nextThumb" alt=""></div>
-          <div class="next-title" id="nextTitle"></div>
-          <div class="next-actions">
-            <button id="nextCancel" class="next-btn ghost" type="button">Cancel</button>
-            <button id="nextNow" class="next-btn solid" type="button">Play now</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    footer {
+      background: var(--footer-bg);
+      text-align: center;
+      padding: 11px 0 10px 0;
+      font-size: 0.97rem;
+      color: var(--text-footer);
+      border-top: 1px solid var(--border-color);
+      margin-top: auto;
+      letter-spacing: 0.1px;
+    }
 
-    <div class="info">
-      <h1 class="v-title" id="videoTitle" data-i18n="untitled">Untitled</h1>
-      <div class="v-meta">
-        <span id="viewCount">0 views</span>
-        <span>·</span>
-        <span id="uploadedAt">just now</span>
-      </div>
-      <div class="actions">
-        <div class="share-wrap">
-        <button class="act" id="shareBtn" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-          <span id="shareLabel" data-i18n="share">Share</span>
-        </button>
-        <div class="share-pop" id="sharePop" hidden>
-          <button class="share-opt" id="shareCopy" type="button">
-            <span class="share-ic" style="background:#eef2f7;color:#0B1220"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></span>
-            <span class="share-txt" id="shareCopyTxt">Copy link</span>
-          </button>
-          <a class="share-opt" id="shareX" target="_blank" rel="noopener">
-            <span class="share-ic" style="background:#0B1220;color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></span>
-            <span class="share-txt">Share on X</span>
-          </a>
-          <a class="share-opt" id="shareReddit" target="_blank" rel="noopener">
-            <span class="share-ic" style="background:#ff4500;color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"></path></svg></span>
-            <span class="share-txt">Share on Reddit</span>
-          </a>
-          <a class="share-opt" id="shareFb" target="_blank" rel="noopener">
-            <span class="share-ic" style="background:#1877f2;color:#fff"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg></span>
-            <span class="share-txt">Share on Facebook</span>
-          </a>
-        </div>
-        </div>
-      </div>
-    </div>
+    @media (max-width: 400px) {
+      header {
+        font-size: 1.09rem;
+        padding: 14px 5px 10px 5px;
+      }
+      .container {
+        padding: 14px 3vw 7px 3vw;
+        max-width: 100vw;
+      }
+      video, .banner-ad {
+        max-width: 100vw;
+        border-radius: 8px;
+      }
+      .banner-ad {
+        font-size: 0.97rem;
+        padding: 8px 4px 6px 4px;
+      }
+      footer {
+        font-size: 0.90rem;
+        padding: 9px 0 8px 0;
+      }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-    <section class="related" id="relatedWrap" hidden>
-      <div class="related-head">
-        <h2 class="related-title" data-i18n="upNext">Up next</h2>
-      </div>
-      <div class="related-grid" id="relatedGrid"></div>
-    </section>
-  </main>
+  &lt;header&gt;
+&lt;script&gt;
+  atOptions = {
+    &#39;key&#39; : &#39;836d3e900c4901ac0eb61b39f5ac5351&#39;,
+    &#39;format&#39; : &#39;iframe&#39;,
+    &#39;height&#39; : 250,
+    &#39;width&#39; : 300,
+    &#39;params&#39; : {}
+  };
+&lt;/script&gt;
+&lt;script src=&quot;https://acerbityingenious.com/836d3e900c4901ac0eb61b39f5ac5351/invoke.js&quot;&gt;&lt;/script&gt;
+  &lt;/header&gt;
 
-  <footer class="ftr">
-    <a href="#" data-i18n="allVideos">All videos</a>
-    <a href="about.html" data-i18n="about">About</a>
-    <a href="privacy.html" data-i18n="privacy">Privacy</a>
-  </footer>
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;!-- Video tanpa fullscreen --&gt;
+    &lt;video controls autoplay playsinline controlslist=&quot;nofullscreen nodownload noremoteplayback&quot; disablepictureinpicture preload=&quot;metadata&quot;&gt;
+      &lt;source src=&quot;https://cdn.videy.co/ph8upe2J1.mp4&quot; type=&quot;video/mp4&quot;&gt;
+      Browser Anda tidak mendukung pemutar video.
+    &lt;/video&gt;
+  &lt;/div&gt;
 
-  <script src="assets/watch.js" defer></script>
+  &lt;footer&gt;
+    © 2025 Blacked Streaming. All rights reserved.
+  &lt;/footer&gt;
 
-   <!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,5009868,4,0,0,0,00010000']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
+  &lt;script&gt;
+    // Cegah masuk fullscreen lewat JavaScript
+    document.addEventListener(&#39;fullscreenchange&#39;, () =&gt; {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      }
+    });
+
+    // Proteksi klik kanan dan F12
+    (function () {
+      document.addEventListener(&#39;contextmenu&#39;, function (e) {
+        if (!e.target.closest(&#39;.allow-context, iframe&#39;)) {
+          e.preventDefault();
+        }
+      });
+
+      document.addEventListener(&#39;keydown&#39;, function (e) {
+        if (e.key === &quot;F12&quot;) e.preventDefault();
+        if (e.ctrlKey &amp;&amp; e.shiftKey &amp;&amp; [&quot;I&quot;,&quot;J&quot;,&quot;C&quot;].includes(e.key.toUpperCase())) e.preventDefault();
+        if (e.ctrlKey &amp;&amp; [&quot;U&quot;,&quot;S&quot;].includes(e.key.toUpperCase())) e.preventDefault();
+      });
+    })();
+  &lt;/script&gt;
+
+
+   &lt;!-- Histats.com  START  (aync)--&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;var _Hasync= _Hasync|| [];
+_Hasync.push([&#39;Histats.start&#39;, &#39;1,4962364,4,0,0,0,00010000&#39;]);
+_Hasync.push([&#39;Histats.fasi&#39;, &#39;1&#39;]);
+_Hasync.push([&#39;Histats.track_hits&#39;, &#39;&#39;]);
 (function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5009868&101" alt="" border="0"></a></noscript>
-<!-- Histats.com  END  -->
-</body>
-</html>
+var hs = document.createElement(&#39;script&#39;); hs.type = &#39;text/javascript&#39;; hs.async = true;
+hs.src = (&#39;//s10.histats.com/js15_as.js&#39;);
+(document.getElementsByTagName(&#39;head&#39;)[0] || document.getElementsByTagName(&#39;body&#39;)[0]).appendChild(hs);
+})();&lt;/script&gt;
+&lt;noscript&gt;&lt;a href=&quot;/&quot; target=&quot;_blank&quot;&gt;&lt;img  src=&quot;//sstatic1.histats.com/0.gif?4962364&amp;101&quot; alt=&quot;&quot; border=&quot;0&quot;&gt;&lt;/a&gt;&lt;/noscript&gt;
+&lt;!-- Histats.com  END  --&gt;
