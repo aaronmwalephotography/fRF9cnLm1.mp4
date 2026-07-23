@@ -1,1 +1,0 @@
-# stanoikov.github.io
